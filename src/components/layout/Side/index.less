@@ -1,0 +1,33 @@
+@primary-background: #32363c;
+
+.nav-left {
+  width: 16%;
+  min-width: 250px;
+  height: 100vh;
+  background: @primary-background;
+  .logowrap {
+    line-height: 90px;
+    padding-left: 20px;
+    background: @primary-background;
+    border-bottom: solid 1px rgba(153, 153, 153, 0.267);
+    .logo {
+      display: inline-block;
+      width: 32px;
+      height: 32px;
+      background: url("../../../assets/logo.png") center center no-repeat;
+      background-size: 100%;
+      vertical-align: -7px;
+      margin-right: 10px;
+    }
+    h1 {
+      display: inline;
+      color: #fff;
+    }
+  }
+  .ant-menu-dark {
+    background: @primary-background;
+  }
+}
+.ant-menu-dark .ant-menu-sub {
+  background: @primary-background;
+}

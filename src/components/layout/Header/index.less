@@ -1,0 +1,54 @@
+@import "../../../style/golabl.less";
+
+.header {
+  background: @primary-white;
+  .header-top {
+    height: 60px;
+    line-height: 60px;
+    padding: @primary-padding;
+    a {
+      margin-left: 10px;
+    }
+    text-align: right;
+  }
+  .breadcrumb {
+    height: 40px;
+    line-height: 40px;
+    padding: @primary-padding;
+    border-top: 1px solid rgba(153, 153, 153, 0.267);
+    .breadcrumb-title {
+      font-size: @font-lg;
+      text-align: center;
+      position: relative;
+      &:after {
+        content: "";
+        position: absolute;
+        top: 39px;
+        left: 50%;
+        margin-left: -12px;
+        border-top: 9px solid @primary-white;
+        border-left: 12px solid transparent;
+        border-right: 12px solid transparent;
+      }
+    }
+    .weather {
+      span {
+        display: inline-block;
+      }
+      text-align: right;
+      .date {
+        margin-right: 8px;
+      }
+      .weather-img {
+        margin-left: 8px;
+        vertical-align: 2px;
+        img {
+          height: 22px;
+        }
+      }
+      .weather-detial {
+        margin-left: 8px;
+      }
+    }
+  }
+}
