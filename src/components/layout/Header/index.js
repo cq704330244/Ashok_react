@@ -1,37 +1,37 @@
-import React from "react";
-import { Row, Col } from "antd";
-import "./index.less";
-import utils from "../../../utils/formate";
-import axios from "../../../axios";
+import React from 'react';
+import { Row, Col } from 'antd';
+import './index.less';
+import utils from '../../../utils/formate';
+import axios from '../../../axios';
 export default class Header extends React.Component {
-  state = { systime: "", weather: {}, daypic: "", weat: "" };
+  state = { systime: '', weather: {}, daypic: '', weat: '' };
   componentWillMount() {
     this.setState({
-      userName: "河畔一角"
+      userName: '河畔一角',
     });
     setInterval(() => {
       let systime = utils.formateDate(new Date().getTime());
       this.setState({
-        systime
+        systime,
       });
     }, 1000);
     this.getWeather();
   }
   getWeather() {
     let self = this;
-    const location = "杭州";
+    const location = '杭州';
     axios
       .jsonp({
         url:
-          "http://api.map.baidu.com/telematics/v3/weather?location=" +
+          'http://api.map.baidu.com/telematics/v3/weather?location=' +
           encodeURIComponent(location) +
-          "&output=json&ak=ohA7QHfg0BBrpiY4kyuIAAsD"
+          '&output=json&ak=ohA7QHfg0BBrpiY4kyuIAAsD',
       })
-      .then((res) => {
+      .then(res => {
         let weatherdata = res[0].weather_data[0];
         console.log(weatherdata);
         self.setState({
-          weather: weatherdata
+          weather: weatherdata,
         });
       });
   }

@@ -1,11 +1,11 @@
-import React from "react";
-import { Row, Col } from "antd";
-import Header from "./Header";
-import Footer from "./Footer";
-import Side from "./Side";
-import Index from "../../view/Index";
-import "../../style/golabl.less";
-import "../../style/common.less";
+import React from 'react';
+import { Row, Col } from 'antd';
+import Header from './Header';
+import Footer from './Footer';
+import Side from './Side';
+import Index from '../../view/Index';
+import '../../style/golabl.less';
+import '../../style/common.less';
 export default class admin extends React.Component {
   render() {
     return (
