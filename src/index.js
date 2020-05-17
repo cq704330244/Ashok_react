@@ -2,12 +2,13 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './style/golabl.less';
 import Home from './view/Home';
+import { BrowserRouter as Router } from 'react-router-dom';
 import * as serviceWorker from './serviceWorker';
 
 ReactDOM.render(
-  <React.StrictMode>
+  <Router>
     <Home />
-  </React.StrictMode>,
+  </Router>,
   document.getElementById('root')
 );
 

@@ -6,15 +6,15 @@
   height: 100vh;
   background: @primary-background;
   .logowrap {
-    line-height: 93px;
+    line-height: 58px;
     padding-left: 20px;
     background: @primary-background;
-    border-bottom: solid 1px #fff;
+    border-bottom: 1px solid rgba(153, 153, 153, 0.267);
     .logo {
       display: inline-block;
       width: 32px;
       height: 32px;
-      background: url("../../../assets/logo.png") center center no-repeat;
+      background: url('../../../assets/logo.png') center center no-repeat;
       background-size: 100%;
       vertical-align: -7px;
       margin-right: 10px;
@@ -26,6 +26,16 @@
   }
   .ant-menu.ant-menu-dark {
     background: @primary-background;
+  }
+  .ant-menu-item-selected a,
+  .ant-menu-item-selected a:hover {
+    color: #fff !important;
+  }
+  .ant-menu-item a {
+    color: rgba(255, 255, 255, 0.65);
+    &:hover {
+      color: #fff;
+    }
   }
 }
 .ant-menu-dark .ant-menu-sub {

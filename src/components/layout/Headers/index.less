@@ -1,4 +1,4 @@
-@import "../../../style/golabl.less";
+@import '../../../style/golabl.less';
 
 .header {
   background: @primary-white;
@@ -12,6 +12,7 @@
     text-align: right;
   }
   .breadcrumb {
+    display: flex;
     height: 40px;
     line-height: 40px;
     padding: @primary-padding;
@@ -21,7 +22,7 @@
       text-align: center;
       position: relative;
       &:after {
-        content: "";
+        content: '';
         position: absolute;
         top: 39px;
         left: 50%;
@@ -32,6 +33,7 @@
       }
     }
     .weather {
+      margin-left: auto;
       span {
         display: inline-block;
       }

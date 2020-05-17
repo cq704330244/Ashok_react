@@ -1,75 +1,89 @@
 import React from 'react';
 import { Menu } from 'antd';
 import menuList from './config.js';
+import { Link, withRouter } from 'react-router-dom';
 import './index.less';
 import {
-  AppstoreOutlined,
-  PieChartOutlined,
-  DesktopOutlined,
-  ContainerOutlined,
-  MailOutlined,
+  AppstoreAddOutlined,
+  HomeOutlined,
+  RocketOutlined,
+  ClusterOutlined,
+  CrownOutlined,
+  InstagramOutlined,
+  MessageOutlined,
+  StarOutlined,
 } from '@ant-design/icons';
 
 const { SubMenu } = Menu;
 
-export default class Side extends React.Component {
-  state = {
-    collapsed: false,
-  };
-
-  toggleCollapsed = () => {
-    this.setState({
-      collapsed: !this.state.collapsed,
-    });
-  };
+class Side extends React.Component {
   rendericon(icon) {
-    if (icon === 'icon1') {
-      return <PieChartOutlined />;
+    if (icon === 'home') {
+      return <HomeOutlined />;
     }
-    if (icon === 'icon2') {
-      return <DesktopOutlined />;
+    if (icon === 'laptop') {
+      return <AppstoreAddOutlined />;
     }
-    if (icon === 'icon3') {
-      return <ContainerOutlined />;
+    if (icon === 'bars') {
+      return <RocketOutlined />;
     }
-    if (icon === 'icon4') {
-      return <MailOutlined />;
+    if (icon === 'edit') {
+      return <ClusterOutlined />;
     }
-    if (icon === 'icon5') {
-      return <AppstoreOutlined />;
+    if (icon === 'copy') {
+      return <CrownOutlined />;
+    }
+    if (icon === 'desktop') {
+      return <InstagramOutlined />;
+    }
+    if (icon === 'message') {
+      return <MessageOutlined />;
+    }
+    if (icon === 'other') {
+      return <StarOutlined />;
     }
   }
   renderMenu(data) {
     return data.map(item => {
-      if (item.children) {
+      if (item.subs) {
         return (
           <SubMenu
             key={item.key}
             icon={this.rendericon(item.icon)}
             title={item.title}>
-            {item.children.map(items => {
-              if (items.children) {
+            {item.subs.map(items => {
+              if (items.subs) {
                 return (
                   <SubMenu key={items.key} title={items.title}>
-                    {items.children.map(itemss => {
+                    {items.subs.map(itemss => {
                       return (
-                        <Menu.Item key={itemss.key}>{itemss.title}</Menu.Item>
+                        <Menu.Item key={itemss.key}>
+                          <Link to={itemss.key}> {itemss.title}</Link>
+                        </Menu.Item>
                       );
                     })}
                   </SubMenu>
                 );
               }
-              return <Menu.Item key={items.key}>{items.title}</Menu.Item>;
+              return (
+                <Menu.Item key={items.key}>
+                  <Link to={items.key}> {items.title}</Link>
+                </Menu.Item>
+              );
             })}
           </SubMenu>
         );
       }
       return (
         <Menu.Item key={item.key} icon={this.rendericon(item.icon)}>
-          {item.title}
+          <Link to={item.key}> {item.title}</Link>
         </Menu.Item>
       );
     });
+  }
+  menuSelect(value) {
+    console.log(value.key);
+    console.log(this.props);
   }
   render() {
     return (
@@ -83,23 +97,12 @@ export default class Side extends React.Component {
           defaultOpenKeys={['/admin/pro']}
           mode="inline"
           theme="dark"
-          inlineCollapsed={this.state.collapsed}>
+          onSelect={this.menuSelect.bind(this)}>
           {this.renderMenu(menuList)}
-          {/*
-          <SubMenu
-            key="sub2"
-            icon={<AppstoreOutlined />}
-            title="Navigation Two"
-          >
-            <Menu.Item key="9">Option 9</Menu.Item>
-            <Menu.Item key="10">Option 10</Menu.Item>
-            <SubMenu key="sub3" title="Submenu">
-              <Menu.Item key="11">Option 11</Menu.Item>
-              <Menu.Item key="12">Option 12</Menu.Item>
-            </SubMenu>
-          </SubMenu> */}
         </Menu>
       </div>
     );
   }
 }
+
+export default withRouter(Side);
