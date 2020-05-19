@@ -1,27 +1,41 @@
 import React from 'react';
 import { Layout } from 'antd';
-import HeaderNav from './Headers';
-import FooterNav from './Footer';
-import Side from './Side';
-import MainContent from './MainContent/index';
-import '../../style/golabl.less';
-import '../../style/common.less';
+import SideNav from './SideNav';
+import HeaderNav from './HeaderNav';
+import ContentMain from './ContentMain';
+import './index.less';
+
 const { Sider, Content } = Layout;
-export default class admin extends React.Component {
+
+class LayoutNav extends React.Component {
+  state = {
+    collapsed: false,
+  };
+
+  headerClick = value => {
+    this.setState({
+      collapsed: value,
+    });
+  };
   render() {
     return (
-      <Layout className="container">
-        <Sider className="nav-left">
-          <Side />
+      <Layout>
+        <Sider trigger={null} collapsible collapsed={this.state.collapsed}>
+          <SideNav />
         </Sider>
-        <Layout className="main">
-          <HeaderNav />
-          <Content className="content">
-            <MainContent />
+        <Layout className="as_layout">
+          <HeaderNav
+            iconClick={value => {
+              this.headerClick(value);
+            }}
+          />
+          <Content className="as_layout_main">
+            <ContentMain />
           </Content>
-          <FooterNav />
         </Layout>
       </Layout>
     );
   }
 }
+
+export default LayoutNav;

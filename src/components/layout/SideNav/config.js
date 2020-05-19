@@ -1,0 +1,35 @@
+const menulist = [
+  {
+    title: '首页',
+    icon: 'home',
+    key: '/admin/home',
+  },
+  {
+    title: '基本组件',
+    icon: 'laptop',
+    key: '/admin/home/general',
+    subs: [{ key: '/admin/home/general/button', title: '按钮', icon: '' }],
+  },
+  {
+    title: '展示组件',
+    icon: 'desktop',
+    key: '/admin/home/display',
+    subs: [
+      { key: '/admin/home/display/base', title: '轮播图', icon: '' },
+      {
+        key: '/admin/home/display/icon',
+        title: '图标',
+        icon: '',
+        subs: [
+          { key: '/admin/home/display/icon/demo', title: '文字图标', icon: '' },
+        ],
+      },
+    ],
+  },
+  {
+    title: '版权',
+    key: '/admin/home/scropt',
+    icon: 'copy',
+  },
+];
+export default menulist;

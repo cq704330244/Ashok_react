@@ -1,10 +1,10 @@
 import React, { Component, Fragment } from 'react';
-import Layout from '../../components/Layout';
-export default class Home extends Component {
+
+export default class ButtonPage extends Component {
   render() {
     return (
       <Fragment>
-        <Layout />
+        <div>ButtonPage</div>
       </Fragment>
     );
   }
