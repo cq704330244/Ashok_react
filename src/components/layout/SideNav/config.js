@@ -8,7 +8,10 @@ const menulist = [
     title: '基本组件',
     icon: 'laptop',
     key: '/admin/home/general',
-    subs: [{ key: '/admin/home/general/button', title: '按钮', icon: '' }],
+    subs: [
+      { key: '/admin/home/general/picselect', title: '图片选择', icon: '' },
+      { key: '/admin/home/general/listscroll', title: '滚动列表', icon: '' },
+    ],
   },
   {
     title: '展示组件',
