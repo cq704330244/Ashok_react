@@ -2,6 +2,7 @@ import React, { Fragment } from 'react';
 import { Menu } from 'antd';
 import { Link, withRouter } from 'react-router-dom';
 import RIcon from './RenderIcon';
+import classNames from 'classnames';
 import menuList from './config.js';
 import './index.less';
 
@@ -47,18 +48,25 @@ class SideNav extends React.Component {
     });
   }
   render() {
+    const { datas } = this.props;
+    const wrapClassName = classNames('as-side', {
+      themsLight: datas.theme === 'light',
+    });
+    const logoFontColor = classNames('logo_text', {
+      blanckColor: datas.theme === 'light',
+    });
     return (
       <Fragment>
-        <div className="as-side">
+        <div className={wrapClassName}>
           <div className="logo">
             <div className="logo_pic"></div>
-            <div className="logo_text">Ashok</div>
+            <div className={logoFontColor}>Ashok</div>
           </div>
           <Menu
             defaultSelectedKeys={['/admin/home']}
             defaultOpenKeys={['/admin/home/general']}
             mode="inline"
-            theme="dark">
+            theme={datas.theme}>
             {this.renderMenu(menuList)}
           </Menu>
         </div>
