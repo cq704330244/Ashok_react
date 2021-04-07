@@ -1,0 +1,63 @@
+@margin-large: 40px 20px;
+.mark {
+  background: linear-gradient(#191c20, #24292e 15%);
+}
+.container {
+  display: flex;
+  flex-direction: column;
+  width: 100vw;
+  height: 100vh;
+  background-image: url('../../assets/bg-login.svg');
+  background-repeat: repeat-x no-repeat;
+  background-position: center 0, 0 0, 0 0;
+  .login-header {
+    font-size: 28px;
+    line-height: 60px;
+    width: 100%;
+    color: #fff;
+    background: rgba(0, 0, 0, 0.4);
+    height: 60px;
+    .login-logo {
+      width: 32px;
+      height: 32px;
+      float: left;
+      margin: 5px 20px 0px;
+      img {
+        width: 100%;
+        height: 100%;
+        display: inline-block;
+      }
+    }
+  }
+  .login-content {
+    flex: 1 1 auto;
+    display: flex;
+    padding-top: 120px;
+    align-items: flex-start;
+    justify-content: center;
+  }
+  .login {
+    border-radius: 5px;
+    background: rgba(0, 0, 0, 0.2);
+    width: 460px;
+    padding: 24px 60px 0 0;
+    overflow: hidden;
+    .ant-form-item-required {
+      color: rgba(255, 255, 255, 0.856);
+      &::before {
+        display: none;
+      }
+    }
+    .ant-btn-primary {
+      color: rgba(255, 255, 255, 0.822);
+      background-color: #9718ff;
+      border-color: #8f18ffd8;
+    }
+    .ant-btn:hover,
+    .ant-btn:focus {
+      color: #9718ff;
+      background-color: #fff;
+      border-color: #9718ff;
+    }
+  }
+}
