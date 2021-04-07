@@ -52,6 +52,20 @@ export default class ContentIndex extends Component {
     },
   };
   pagationChange(current, pagesize) {
+    this.setState({
+      isLoading: true,
+    });
+    http.get('http://www.liulongbin.top:3006/api/cmtlist').then(res => {
+      this.setState({
+        data: res.data,
+        pagationOpt: {
+          total: res.data.length,
+          current: current,
+          pageSize: pagesize,
+        },
+        isLoading: false,
+      });
+    });
     console.log(current, pagesize);
   }
   componentDidMount() {
